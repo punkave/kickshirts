@@ -58,6 +58,7 @@
       $('body').on('click', '[data-max]', function() {
         maxPrice = parseFloat($(this).attr('data-max'));
         limit();
+        return false;
       });
       limit();
       enhance();

@@ -1,10 +1,3 @@
-// TODO
-// Find the shirts
-// Build pages
-// Set up an update mechanism
-// Apply a style
-// Credit Geoff
-
 var request = require('request');
 var $ = require('jquery');
 var _ = require('underscore');
@@ -17,7 +10,10 @@ var db;
 var done = false;
 var page = 1;
 var shirtProjects = [];
-var maxProjects = 10;
+// By default you get 10 projects for dev,
+// specify how many you are willing to wait for
+// as the only command line argument
+var maxProjects = process.argv[2] ? parseInt(process.argv[2]) : 10;
 
 async.whilst(function() { return !done; },
   function(callback) {
