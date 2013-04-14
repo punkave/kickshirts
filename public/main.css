@@ -327,5 +327,6 @@ and (max-device-width : 960px)
   }
   article h3 {
     font-size: 175%;
+    height: auto;
   }
 }
