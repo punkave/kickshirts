@@ -69,6 +69,13 @@ h1
 {
   font-size: 300%;
   margin: 0.5em 0 0.5em 0;
+  font-family: Tauri, Helvetica;
+  background-color: #fd0;
+  border: 6px solid #fd0;
+  color: black;
+  padding-left: 10px;
+  border-radius: 6px;
+  letter-spacing: 20px;
 }
 
 h2
@@ -279,12 +286,6 @@ h1.low
 @media only screen
 and (max-device-width : 960px)
 {
-  h1.high {
-    display: none;
-  }
-  h1.low {
-    display: block;
-  }
   .container {
     width: 96%;
     margin: 1%;

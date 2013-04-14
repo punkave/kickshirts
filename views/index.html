@@ -4,11 +4,10 @@
   <title>KickShirts</title>
 </head>
 <link rel="stylesheet" type="text/css" href="main.css">
-<body>
+<link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'><body>
   <div class="container">
     <header>
-      <h1 class="high">KickShirts</h1>
-      <h1 class="low">KickShirts</h1>
+      <h1>KICKSHIRTS</h1>
       <h2>Shop for T-shirts by pledging on <a href="http://kickstarter.com/">Kickstarter</a></h2>
       <h4><em><a href="#footer">A P'unk Avenue weekend hack</a></em></h4>
     </header>
@@ -20,7 +19,7 @@
       <a href="#" data-max="50">$50</a>
       <a href="#" data-max="75">$75</a>
       <a href="#" data-max="100">$100</a>
-      <em>Currency may vary</em>
+      <em>currency varies</em>
     </h3>
     <div class="articles">
       {% include 'views/projects.html' %}
@@ -108,22 +107,7 @@
         });
       }
 
-      enhanceBody();
       enhanceArticles();
-
-      function enhanceBody() {
-        var $h1 = $('h1.high');
-        function fade() {
-          if ($h1.is(':visible')) {
-            var color = 'rgb(' + color() + ',' + color() + ',' + color() + ')';
-            $h1.animate({ 'color': color }, 1000, fade);
-            function color() {
-              return Math.floor(Math.random() * 256);
-            }
-          }
-        }
-        fade();
-      }
 
       function enhanceArticles() {
         $('.project .desc').each(function() {
