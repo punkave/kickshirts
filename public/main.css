@@ -255,6 +255,11 @@ footer
   margin-bottom: 10px;
 }
 
+h1.low
+{
+  display: none;
+}
+
 .loading
 {
   clear: left;
@@ -274,6 +279,12 @@ footer
 @media only screen
 and (max-device-width : 960px)
 {
+  h1.high {
+    display: none;
+  }
+  h1.low {
+    display: block;
+  }
   .container {
     width: 96%;
     margin: 1%;
@@ -296,6 +307,9 @@ and (max-device-width : 960px)
     padding: 1%;
     border: none;
     border-radius: 0;
+  }
+  .thumbnail {
+    height: auto;
   }
   .desc {
     font-size: 125%;

@@ -7,7 +7,8 @@
 <body>
   <div class="container">
     <header>
-      <h1>KickShirts</h1>
+      <h1 class="high">KickShirts</h1>
+      <h1 class="low">KickShirts</h1>
       <h2>Shop for T-shirts by pledging on <a href="http://kickstarter.com/">Kickstarter</a></h2>
       <h4><em><a href="#footer">A P'unk Avenue weekend hack</a></em></h4>
     </header>
@@ -111,12 +112,14 @@
       enhanceArticles();
 
       function enhanceBody() {
-        var $h1 = $('h1');
+        var $h1 = $('h1.high');
         function fade() {
-          var color = 'rgb(' + color() + ',' + color() + ',' + color() + ')';
-          $h1.animate({ 'color': color }, 1000, fade);
-          function color() {
-            return Math.floor(Math.random() * 256);
+          if ($h1.is(':visible')) {
+            var color = 'rgb(' + color() + ',' + color() + ',' + color() + ')';
+            $h1.animate({ 'color': color }, 1000, fade);
+            function color() {
+              return Math.floor(Math.random() * 256);
+            }
           }
         }
         fade();
