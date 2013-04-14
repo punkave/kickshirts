@@ -12,7 +12,7 @@
       <h4><em><a href="#footer">A P'unk Avenue weekend hack</a></em></h4>
     </header>
     <h3 class="max">
-      <a href="#" data-max="0">No limit</a>
+      <a href="#" data-max="0" class="active">No limit</a>
       <a href="#" data-max="10">$10</a>
       <a href="#" data-max="20">$20</a>
       <a href="#" data-max="30">$30</a>
@@ -65,6 +65,8 @@
       var maxPrice = 0;
       $('body').on('click', '[data-max]', function() {
         max = parseFloat($(this).attr('data-max'));
+        $('[data-max]').removeClass('active');
+        $(this).addClass('active');
         reset();
         return false;
       });
