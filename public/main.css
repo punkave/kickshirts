@@ -283,6 +283,11 @@ h1.low
   margin: 0 20px 0 20px;
 }
 
+.credits
+{
+  display: none;
+}
+
 @media only screen
 and (max-device-width : 960px)
 {

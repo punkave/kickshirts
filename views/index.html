@@ -9,7 +9,14 @@
     <header>
       <h1>KICKSHIRTS</h1>
       <h2>Shop for T-shirts by pledging on <a href="http://kickstarter.com/">Kickstarter</a></h2>
-      <h4><em><a href="#footer">A P'unk Avenue weekend hack</a></em></h4>
+      <h4><em><a data-open-credits href="#">A P'unk Avenue weekend hack</a></em></h4>
+      <div class="credits" data-credits>
+        <a href="http://punkave.com/"><img class="logo" src="punkavelogo.png" /></a>
+        <h3>A <a href="http://punkave.com/">P'unk Avenue</a> weekend hack</h3>
+        <h4>Idea: Geoff DiMasi</h4>
+        <h4>Execution: Tom Boutell</h4>
+        <p><em>P'unk Avenue is in no way affiliated with Kickstarter. We love Kickstarter and hope to encourage people to support cool projects.</em></p>
+      </div>
     </header>
     <h3 class="max">
       <a href="#" data-max="0" class="active">No limit</a>
@@ -34,19 +41,17 @@
       <img src="/spinner.gif"/>
       <img src="/spinner.gif"/>
     </div>
-    <a name="footer"></a>
-    <footer>
-      <a href="http://punkave.com/"><img class="logo" src="punkavelogo.png" /></a>
-      <h3>A <a href="http://punkave.com/">P'unk Avenue</a> weekend hack</h3>
-      <h4>Idea: Geoff DiMasi</h4>
-      <h4>Execution: Tom Boutell</h4>
-      <p><em>P'unk Avenue is in no way affiliated with Kickstarter. We love Kickstarter and hope to encourage people to support cool projects.</em></p>
-    </footer>
   </div>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
   <script type="text/javascript">
     $(function() {
+
+      $('[data-open-credits]').click(function() {
+        $('[data-credits]').show();
+        return false;
+      });
+
       var page = 1;
       var max = 0;
       var end = false;
