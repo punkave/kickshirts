@@ -301,7 +301,7 @@ and (max-device-width : 960px)
     clear: left;
   }
   .left, .right {
-    font-size: 125%;
+    font-size: 150%;
     width: 46%;
     margin: 1%;
     padding: 1%;
@@ -312,7 +312,7 @@ and (max-device-width : 960px)
     height: auto;
   }
   .desc {
-    font-size: 125%;
+    font-size: 150%;
   }
   .shirt h5 {
     height: 150px;
