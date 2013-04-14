@@ -1,0 +1,19 @@
+{% for project in projects %}
+  <article class="project" data-currency="{{ project.shirt.currency }}" data-price="{{ project.shirt.price }}">
+    <a href="{{ project.link | e }}">
+      <h3>{{ project.name | e }}</h3>
+      <div class="left">
+        <img class="thumbnail" src="{{ project.thumbnail | e }}" />
+      </div>
+      <div class="right">
+        <div class="pledge">
+          {{ project.blurb | e }}
+        </div>
+      </div>
+      <div class="shirt">
+        <h5><span class="currency">{{ project.shirt.currency }}<span class="price">{{ project.shirt.price }}</span></h5>
+        <div class="desc">{{ project.shirt.desc }}</div>
+      </div>
+    </a>
+  </article>
+{% endfor %}

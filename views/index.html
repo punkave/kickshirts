@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>KickShirts</title>
@@ -21,25 +22,7 @@
       <em>Currency may vary</em>
     </h3>
     <div class="articles">
-      {% for project in projects %}
-        <article class="project" data-currency="{{ project.shirt.currency }}" data-price="{{ project.shirt.price }}">
-          <a href="{{ project.link | e }}">
-            <h3>{{ project.name | e }}</h3>
-            <div class="left">
-              <img class="thumbnail" src="{{ project.thumbnail | e }}" />
-            </div>
-            <div class="right">
-              <div class="pledge">
-                {{ project.blurb | e }}
-              </div>
-            </div>
-            <div class="shirt">
-              <h5><span class="currency">{{ project.shirt.currency }}<span class="price">{{ project.shirt.price }}</span></h5>
-              <div class="desc">{{ project.shirt.desc }}</div>
-            </div>
-          </a>
-        </article>
-      {% endfor %}
+      {% include 'views/projects.html' %}
     </div>
     <a name="footer"></a>
     <footer>
@@ -47,35 +30,67 @@
       <h3>A <a href="http://punkave.com/">P'unk Avenue</a> weekend hack</h3>
       <h4>Idea: Geoff DiMasi</h4>
       <h4>Execution: Tom Boutell</h4>
-      <p><em>P'unk Avenue is in no way affiliated with Kickstarter. We love Kickstarter and hope to encourage people to pledge for cool stuff.</em></p>
+      <p><em>P'unk Avenue is in no way affiliated with Kickstarter. We love Kickstarter and hope to encourage people to support cool projects.</em></p>
     </footer>
   </div>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
   <script type="text/javascript">
     $(function() {
+      var page = 1;
+      var max = 0;
+      var end = false;
+
+      // Infinite scroll
+      setInterval(function() {
+        if (!end) {
+          if (($(document).scrollTop() + $(window).height() + 350) >= $(document).height())
+          {
+            loadPage();
+          }
+        }
+      }, 1000);
+
       var maxPrice = 0;
       $('body').on('click', '[data-max]', function() {
-        maxPrice = parseFloat($(this).attr('data-max'));
-        limit();
+        max = parseFloat($(this).attr('data-max'));
+        reset();
         return false;
       });
-      limit();
-      enhance();
-      function limit() {
-        $('.project').each(function() {
-          var $project = $(this);
-          var price = parseFloat($project.attr('data-price'));
-          if (maxPrice && (maxPrice < price)) {
-            $project.hide();
-          } else {
-            $project.show();
+
+      function reset() {
+        $('.articles').html('');
+        page = 0;
+        end = false;
+        loadPage();
+      }
+
+      function loadPage() {
+        page++;
+        $.ajax({
+          url: '/projects',
+          type: 'GET',
+          data: {
+            page: page,
+            max: max
+          },
+          success: function(data) {
+            var $articles = $.parseHTML(data);
+            $('.articles').append($articles);
+            enhanceArticles();
+          },
+          statusCode: {
+            404: function() {
+              end = true;
+            }
           }
-          $('[data-max]').removeClass('active');
-          $('[data-max="' + maxPrice + '"]').addClass('active');
         });
       }
-      function enhance() {
+
+      enhanceBody();
+      enhanceArticles();
+
+      function enhanceBody() {
         var $h1 = $('h1');
         function fade() {
           var color = 'rgb(' + color() + ',' + color() + ',' + color() + ')';
@@ -85,13 +100,20 @@
           }
         }
         fade();
+      }
+
+      function enhanceArticles() {
         $('.project .desc').each(function() {
           var $desc = $(this);
+          if ($desc.data('enhanced')) {
+            return;
+          }
           var markup = $desc.html();
           markup = markup.replace(/[A-Za-z\-]*shirt/i, function(match) {
             return '<span class="shirt-word">' + match + '</span>';
           });
           $desc.html(markup);
+          $desc.data('enhanced', true);
         });
       }
     });

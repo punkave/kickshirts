@@ -15,6 +15,7 @@
     "request": "~2.16.6",
     "underscore": "~1.4.4",
     "async": "~0.2.7",
-    "nunjucks": "~0.1.8a"
+    "nunjucks": "~0.1.8a",
+    "express": "~3.1.2"
   }
 }
