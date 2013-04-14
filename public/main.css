@@ -254,3 +254,19 @@ footer
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.loading
+{
+  clear: left;
+  width: 920px;
+  background-color: white;
+  border: 10px solid white;
+  border-radius: 10px;
+  margin: 10px 10px 100px 10px;
+  text-align: center;
+}
+
+.loading img
+{
+  margin: 0 20px 0 20px;
+}

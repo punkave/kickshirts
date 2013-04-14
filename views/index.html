@@ -24,6 +24,16 @@
     <div class="articles">
       {% include 'views/projects.html' %}
     </div>
+    <div class="loading">
+      <img src="/spinner.gif"/>
+      <img src="/spinner.gif"/>
+      <img src="/spinner.gif"/>
+      <img src="/spinner.gif"/>
+      <img src="/spinner.gif"/>
+      <img src="/spinner.gif"/>
+      <img src="/spinner.gif"/>
+      <img src="/spinner.gif"/>
+    </div>
     <a name="footer"></a>
     <footer>
       <a href="http://punkave.com/"><img class="logo" src="punkavelogo.png" /></a>
@@ -63,6 +73,7 @@
         $('.articles').html('');
         page = 0;
         end = false;
+        $('.loading').show();
         loadPage();
       }
 
@@ -88,6 +99,7 @@
           statusCode: {
             404: function() {
               end = true;
+              $('.loading').hide();
             }
           }
         });
