@@ -308,7 +308,7 @@ and (max-device-width : 960px)
     border: none;
     border-radius: 0;
   }
-  .thumbnail {
+  article .thumbnail {
     height: auto;
   }
   .desc {
