@@ -40,10 +40,11 @@
       var page = 1;
       var max = 0;
       var end = false;
+      var loading = false;
 
       // Infinite scroll
       setInterval(function() {
-        if (!end) {
+        if ((!end) && (!loading)) {
           if (($(document).scrollTop() + $(window).height() + 350) >= $(document).height())
           {
             loadPage();
@@ -67,6 +68,7 @@
 
       function loadPage() {
         page++;
+        loading = true;
         $.ajax({
           url: '/projects',
           type: 'GET',
@@ -78,6 +80,10 @@
             var $articles = $.parseHTML(data);
             $('.articles').append($articles);
             enhanceArticles();
+            loading = false;
+          },
+          error: function() {
+            loading = false;
           },
           statusCode: {
             404: function() {
