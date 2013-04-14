@@ -5,5 +5,5 @@
 # match the USER setting in /opt/stagecoach/settings on
 # the server
 
-USER=staging
-SERVER=staging.punkave.net
+USER=punkavec
+SERVER=kickshirts.punkave.com
