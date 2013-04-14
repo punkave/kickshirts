@@ -272,7 +272,7 @@ footer
 }
 
 @media only screen
-and (max-width : 959px)
+and (max-device-width : 960px)
 {
   .container {
     width: 96%;
