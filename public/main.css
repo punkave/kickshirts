@@ -277,14 +277,16 @@ footer
 and (max-device-width : 480px)
 {
   .container, article, header, footer, .loading {
-    width: 920px;
+    width: 880px;
     clear: left;
   }
   .left, .right {
-    width: 320px;
+    width: 400px;
     font-size: 125%;
+    height: 200px;
   }
-  .pledge {
+  .shirt {
     font-size: 125%;
+    height: 150px;
   }
 }
