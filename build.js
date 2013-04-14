@@ -2,7 +2,6 @@ var request = require('request');
 var $ = require('jquery');
 var _ = require('underscore');
 var async = require('async');
-var nunjucks = require('nunjucks');
 var fs = require('fs');
 
 var url = 'http://www.kickstarter.com/discover/recently-launched';
@@ -88,10 +87,7 @@ async.whilst(function() { return !done; },
 function generateStore() {
   // fs.writeFileSync('data/all.json', JSON.stringify(projects));
   fs.writeFileSync('data/shirts.json', JSON.stringify(shirtProjects));
-  var env = new nunjucks.Environment();
-  var tmpl = env.getTemplate('views/index.html');
-  fs.writeFileSync('web/index.html', tmpl.render({ projects: shirtProjects }));
-  console.log('Store has been rendered to web/index.html');
+  console.log('Done!');
 }
 
 function clean(text) {
