@@ -2,6 +2,8 @@
 // Automatically reload shirts.json if it is modified, which happens when
 // build.js completes a run
 
+process.chdir(__dirname);
+
 var express = require('express');
 var app = express();
 var fs = require('fs');
