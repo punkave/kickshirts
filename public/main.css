@@ -274,7 +274,7 @@ footer
 /* Simple layout for smaller devices */
 
 @media only screen
-and (max-width : 959px)
+and (max-device-width : 480px)
 {
   .container, article, header, footer, .loading {
     width: 600px;
