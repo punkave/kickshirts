@@ -271,22 +271,42 @@ footer
   margin: 0 20px 0 20px;
 }
 
-/* Simple layout for smaller devices */
-
 @media only screen
-and (max-device-width : 480px)
+and (max-width : 959px)
 {
+  .container {
+    width: 96%;
+    margin: 1%;
+    padding: 1%;
+    border: none;
+    border-radius: 0;
+  }
   .container, article, header, footer, .loading {
-    width: 880px;
+    width: 96%;
+    margin: 1%;
+    padding: 1%;
+    border: none;
+    border-radius: 0;
     clear: left;
   }
   .left, .right {
-    width: 400px;
     font-size: 125%;
-    height: 200px;
+    width: 46%;
+    margin: 1%;
+    padding: 1%;
+    border: none;
+    border-radius: 0;
+  }
+  .desc {
+    font-size: 125%;
+  }
+  .shirt h5 {
+    height: 150px;
   }
   .shirt {
-    font-size: 125%;
     height: 150px;
+  }
+  article:hover {
+    border: none;
   }
 }
