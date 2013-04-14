@@ -270,3 +270,17 @@ footer
 {
   margin: 0 20px 0 20px;
 }
+
+/* Simple layout for smaller devices */
+
+@media only screen
+and (max-width : 959px)
+{
+  .container, article, header, footer, .loading {
+    width: 600px;
+    clear: left;
+  }
+  .left, .right {
+    width: 280px;
+  }
+}
