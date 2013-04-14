@@ -277,7 +277,7 @@ h1.low
 }
 
 @media only screen
-and (max-device-width : 960px)
+and (max-width : 960px)
 {
   h1.high {
     display: none;
@@ -296,6 +296,7 @@ and (max-device-width : 960px)
     width: 96%;
     margin: 1%;
     padding: 1%;
+    height: auto;
     border: none;
     border-radius: 0;
     clear: left;
@@ -303,6 +304,7 @@ and (max-device-width : 960px)
   .left, .right {
     font-size: 150%;
     width: 46%;
+    height: auto;
     margin: 1%;
     padding: 1%;
     border: none;
