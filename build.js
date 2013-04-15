@@ -14,6 +14,8 @@ var shirtProjects = [];
 // as the only command line argument
 var maxProjects = process.argv[2] ? parseInt(process.argv[2]) : 10;
 
+process.chdir(__dirname);
+
 async.whilst(function() { return !done; },
   function(callback) {
     myrequest(url + '?page=' + page, function(err, response, body) {
