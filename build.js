@@ -1,5 +1,5 @@
 var request = require('request');
-var $ = require('jquery');
+var cheerio = require('cheerio');
 var _ = require('underscore');
 var async = require('async');
 var fs = require('fs');
@@ -20,8 +20,8 @@ async.whilst(function() { return !done; },
   function(callback) {
     myrequest(url + '?page=' + page, function(err, response, body) {
       if (response && (response.statusCode === 200)) {
-        var $document = $(body);
-        var $projects = $document.find('.project');
+        var $ = cheerio.load(body);
+        var $projects = $('.project');
         async.eachSeries($projects, function(project, callback) {
           // Since I'm too lazy to rewrite this with whilst
           if (done) {
@@ -36,8 +36,8 @@ async.whilst(function() { return !done; },
           info.rewards = [];
           myrequest(info.link, function(err, response, body) {
             if (response && (response.statusCode === 200)) {
-              var $document = $(body);
-              var $rewards = $document.find('.NS-projects-reward');
+              var $ = cheerio.load(body);
+              var $rewards = $('.NS-projects-reward');
               _.each($rewards, function(reward) {
                 var $reward = $(reward);
                 var rewardInfo = {};
