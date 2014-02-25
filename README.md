@@ -1,10 +1,16 @@
 # kickshirts
 
-This app displays all the Kickstarter projects that feature T-shirts as reward items.
+This node-powered web app displays all the Kickstarter projects that feature T-shirts as reward items. We thought people would go nuts for it, but... not so much. So we're open-sourcing the code to benefit those who are interested in scraping data from Kickstarter and/or scraping data with Node in general.
 
 ## Setup
 
-There are two scripts: `build.js` and `server.js`. The `build.js` script builds a database in `data/shirts.json`. There's a cron job on the server that runs it nightly. But you don't want to wait for that, so just do:
+First, get node installed if you don't have it already.
+
+Then you can run:
+
+    npm install
+
+There are two scripts: `build.js` and `server.js`. The `build.js` script builds a database in `data/shirts.json`. But you don't want to wait for that, so just do:
 
     mkdir -p data
     cp shirts.json.gz data
@@ -26,11 +32,11 @@ Be aware that template edits (the views folder) are not active until you restart
 
 ## Scraping new data
 
-If you do decide to run `build.js`, be aware it fetches only 10 projects by default. We're scraping Kickstarter and you usually don't want to wait for that. If you really want to do a full run, you can do:
+If you do decide to run `build.js`, be aware it fetches only 10 projects by default. If you really want to do a full run, you can do:
 
     node build.js 1000
 
-But the test data you gunzipped above is perfectly adequate, just a little old.
+PLEASE RUN THIS RESPONSIBLY, do not schedule it to run more than once a day or so at most.
 
 ## Deployment
 
