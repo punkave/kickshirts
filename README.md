@@ -44,4 +44,4 @@ PLEASE RUN THIS RESPONSIBLY, do not schedule it to run more than once a day or s
 
 Have fun!
 
--The team at [P'unk Avenue](https://github.com/punkave/kickshirts)
+-The team at [P'unk Avenue](http://punkave.com)
